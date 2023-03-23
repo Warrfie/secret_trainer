@@ -266,7 +266,7 @@ library["cases"]["PASSPORT"] = {
     "R": {
         "value": r"^[0-9 ]{1,10}$",
         "gen_func": reg_check,
-        "next": "R",
+        "next": "M",
         "doc": "<li><p>Номер паспорта типа 00 00 000000</p></li><li><p>Обязательное</p></li><li><p>Текст ошибки:Неправильно заполнено поле PASSPORT</p></li>",
         "error": "Неправильно заполнено поле PASSPORT",
         "name": "PASSPORT (не корректно по маске)"
@@ -400,7 +400,6 @@ library["cases"]["BANK_ACCOUNT"] = {
     }
 }
 library["cases"]["BALANCE"] = {
-
     "C": {
         "value": r"^[0-9]{1,9}.[0-9]{2}$",
         "gen_func": reg_check,
