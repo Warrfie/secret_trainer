@@ -1,6 +1,6 @@
 def get_HTML_field(name, field):
     doc = f'<div class="st"><ul><li>Поле — {name}:'
-    doc += '<div class="st"><ul>' + field + '</ul></div>'
+    doc += field
     doc += "</li></ul><br></div>"
     return doc
 

@@ -3,6 +3,7 @@ import random
 import re
 
 import uvicorn
+
 from pymongo import MongoClient
 from combidata import DataGenerator
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -108,6 +109,7 @@ async def register(request: Request):
 
     variant = get_init_lib(variant)
     variant = {key: case.additional_fields["doc"] for key, case in variant.items()}
+    variant = dict(sorted(variant.items()))
 
     return HTMLResponse(content=get_HTML_doc(nick_name, variant), status_code=200)
 
