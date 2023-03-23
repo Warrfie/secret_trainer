@@ -95,7 +95,7 @@ async def receive(request: Request):
 
 async def register(request: Request):
     nick_name = request.headers.get("agent")
-    if nick_name is None and not bool(re.match(r"^[A-Z]{2}[0-9]{3}[A-Z]$", str(nick_name))):
+    if nick_name is None or not bool(re.match(r"^[A-Z]{2}[0-9]{3}[A-Z]$", str(nick_name))):
         return """Сайт "Кошечки и собачки" на реконструкции, вернитесь позже"""
     elif (variant := await get_variant(request, nick_name)) is None:
         mongo_client: AsyncIOMotorClient = request.app.state.mongo_client["variants"]
