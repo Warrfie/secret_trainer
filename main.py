@@ -16,9 +16,9 @@ from starlette.responses import HTMLResponse
 from HTML_former import get_HTML_doc
 from gen_lib import library
 
-import re_generate
+from re_generate import re_generate
 
-re_generate = re_generate.get_str
+
 
 env = Env()
 MONGODB_URL = env.str("MONGODB_URL", default="mongodb://localhost:27017/test_database")
