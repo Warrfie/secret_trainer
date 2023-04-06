@@ -37,14 +37,14 @@ library = {
 }
 library["cases"]["NAME"] = {
     "R": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`]{1,50}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,50}$",
         "gen_func": reg_check,
         "doc": RU_NAME,
         "error": "Неправильно заполнено поле NAME",
         "name": "NAME с русскими буквами (корректно)"
     },
     "L": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`]{1,60}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,60}$",
         "gen_func": reg_check,
         "next": "R",
         "doc": RU_NAME,
@@ -67,7 +67,7 @@ library["cases"]["NAME"] = {
         "name": "NAME с латинскими буквами (не корректно по длине)"
     },
     "O": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`]{1,50}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,50}$",
         "gen_func": reg_check,
         "next": "L",
         "doc": RU_NAME,
@@ -308,14 +308,14 @@ library["cases"]["POST_NO"] = {
 }
 library["cases"]["STREET"] = {
     "R": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`0-9]{1,50}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD \-'`0-9]{1,50}$",
         "gen_func": reg_check,
         "doc": STREET,
         "error": "Неправильно заполнено поле STREET",
         "name": "STREET с русскими буквами (корректно)"
     },
     "L": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`]{1,60}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,60}$",
         "gen_func": reg_check,
         "next": "R",
         "doc": STREET,
@@ -366,7 +366,7 @@ library["cases"]["CAR_NO"] = {
         "name": "CAR_NO с русскими буквами (корректно)"
     },
     "A": {
-        "value": r"^[А-Яа-яёЁIVXLC\-'`]{1,60}$",
+        "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,60}$",
         "gen_func": get_all,
         "next": "R",
         "doc": CAR_NO,
@@ -401,19 +401,27 @@ library["cases"]["BANK_ACCOUNT"] = {
 }
 library["cases"]["BALANCE"] = {
     "C": {
-        "value": r"^[0-9]{1,9}.[0-9]{2}$",
+        "value": r"^[1-9][0-9]{0,8}.[0-9]{2}|0.[0-9]{2}$",
         "gen_func": reg_check,
         "doc": BALANCE,
         "error": "Неправильно заполнено поле BALANCE",
         "name": "BALANCE (корректно)"
     },
     "F": {
-        "value": r"^[0-9]{1,30}.[0-9]{2}$",
+        "value": r"^[1-9][0-9]{1,30}.[0-9]{2}$",
         "gen_func": reg_check,
         "next": "C",
         "doc": BALANCE,
         "error": "Неправильно заполнено поле BALANCE",
         "name": "BALANCE (не корректно по длине)"
+    },
+    "NotDigit": {
+        "value": r"^[0-9]{1,9}.[0-9]{2}$",
+        "gen_func": reg_check,
+        "next": "F",
+        "doc": BALANCE,
+        "error": "Неправильно заполнено поле BALANCE",
+        "name": "BALANCE (можно ввести не число)"
     }
 
 }

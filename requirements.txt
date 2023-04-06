@@ -3,6 +3,6 @@ envparse==0.2.0
 motor~=3.1.1
 uvicorn~=0.21.0
 starlette~=0.26.0.post1
-combidata~=0.1.8
+combidata~=0.1.9
 re_generate==0.1.8
 pymongo~=4.3.3

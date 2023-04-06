@@ -90,7 +90,7 @@ async def receive(request: Request):
     mongo_client: AsyncIOMotorClient = request.app.state.mongo_client["mainDB"]
     cursor = mongo_client.records.find({"_id": searched_id})
     res = (await cursor.to_list(1))[0]
-    item = {key if key != "_id" else "TARGETID": value for key, value in res.items()}
+    item = {(key if key != "_id" else "TARGETID"): value for key, value in res.items()}
     return item
 
 
