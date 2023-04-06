@@ -401,7 +401,7 @@ library["cases"]["BANK_ACCOUNT"] = {
 }
 library["cases"]["BALANCE"] = {
     "C": {
-        "value": r"^[1-9][0-9]{0,8}.[0-9]{2}|0.[0-9]{2}$",
+        "value": r"^([1-9][0-9]{0,8}.[0-9]{2}|0.[0-9]{2})$",
         "gen_func": reg_check,
         "doc": BALANCE,
         "error": "Неправильно заполнено поле BALANCE",
