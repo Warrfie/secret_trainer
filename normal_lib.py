@@ -29,13 +29,13 @@ def not_correct_date_check(reg, target):
     return not date_check(reg, target)
 
 
-library = {
+normal_library = {
     "cases": {},
     "workflow": (ST_COMBINE, FORM_CASES, CHECK),
     "tools": {},
     "template": {}
 }
-library["cases"]["NAME"] = {
+normal_library["cases"]["NAME"] = {
     "R": {
         "value": r"^[А-Яа-яёЁIVXMLCD\-'`]{1,50}$",
         "gen_func": reg_check,
@@ -84,7 +84,7 @@ library["cases"]["NAME"] = {
         "name": "NAME с латинскими буквами (Заменяет SURNAME)"
     }
 }
-library["cases"]["SURNAME"] = {
+normal_library["cases"]["SURNAME"] = {
     "R": {
         "value": r"^[А-Яа-яёЁ]{1,50}$",
         "gen_func": reg_check,
@@ -118,7 +118,7 @@ library["cases"]["SURNAME"] = {
         "name": "SURNAME с русскими буквами (необязательно)"
     }
 }
-library["cases"]["BIRTHDATE"] = {
+normal_library["cases"]["BIRTHDATE"] = {
     "C": {
         "value": r"^[0-9]{2}.[0-9]{2}.[0-9]{4}$",
         "gen_func": date_check,
@@ -159,7 +159,7 @@ library["cases"]["BIRTHDATE"] = {
         "name": "BIRTHDATE ошибка в текстовке"
     }
 }
-library["cases"]["ID_CARD"] = {
+normal_library["cases"]["ID_CARD"] = {
     "C": {
         "value": r"^[0-9]{9}$",
         "gen_func": reg_check,
@@ -216,7 +216,7 @@ library["cases"]["ID_CARD"] = {
         "name": "ID_CARD (принимает еще и буквы)"
     }
 }
-library["cases"]["PASSPORT"] = {
+normal_library["cases"]["PASSPORT"] = {
     "C": {
         "value": r"^[0-9]{10}$",
         "gen_func": reg_check,
@@ -272,7 +272,7 @@ library["cases"]["PASSPORT"] = {
         "name": "PASSPORT (не корректно по маске)"
     }
 }
-library["cases"]["PASSPORT_ISSUE"] = {
+normal_library["cases"]["PASSPORT_ISSUE"] = {
     "C": {
         "value": r"^[0-9]{2}.[0-9]{2}.[0-9]{4}$",
         "gen_func": date_check,
@@ -289,7 +289,7 @@ library["cases"]["PASSPORT_ISSUE"] = {
         "name": "PASSPORT_ISSUE больше текущей или мусор"
     }
 }
-library["cases"]["POST_NO"] = {
+normal_library["cases"]["POST_NO"] = {
     "C": {
         "value": r"^[0-9]{3}-[0-9]{3}$",
         "gen_func": reg_check,
@@ -306,7 +306,7 @@ library["cases"]["POST_NO"] = {
         "name": "POST_NO (не корректно по маске)"
     }
 }
-library["cases"]["STREET"] = {
+normal_library["cases"]["STREET"] = {
     "R": {
         "value": r"^[А-Яа-яёЁIVXMLCD \-'`0-9]{1,50}$",
         "gen_func": reg_check,
@@ -323,7 +323,7 @@ library["cases"]["STREET"] = {
         "name": "STREET с русскими буквами (не корректно по длине)"
     }
 }
-library["cases"]["HOUSE"] = {
+normal_library["cases"]["HOUSE"] = {
     "C": {
         "value": r"^[0-9]{1,5}$",
         "gen_func": reg_check,
@@ -340,7 +340,7 @@ library["cases"]["HOUSE"] = {
         "name": "HOUSE (не корректно по длине)"
     }
 }
-library["cases"]["FLAT"] = {
+normal_library["cases"]["FLAT"] = {
     "C": {
         "value": r"^[0-9]{1,5}$",
         "gen_func": reg_check,
@@ -357,7 +357,7 @@ library["cases"]["FLAT"] = {
         "name": "FLAT (не корректно по длине)"
     }
 }
-library["cases"]["CAR_NO"] = {
+normal_library["cases"]["CAR_NO"] = {
     "R": {
         "value": r"^([УКЕНХВАРОСМТYKEHXBAPOCMT][0-9]{3}[УКЕНХВАРОСМТYKEHXBAPOCMT]{2}[0-9]{2,3}|[УКЕНХВАРОСМТYKEHXBAPOCMT]{2}[0-9]{3}[УКЕНХВАРОСМТYKEHXBAPOCMT][0-9]{2}|[0-9]{4}[УКЕНХВАРОСМТYKEHXBAPOCMT]{2}[0-9]{2}|[УКЕНХВАРОСМТYKEHXBAPOCMT]{2}[0-9]{6})$",
         "gen_func": reg_check,
@@ -382,7 +382,7 @@ library["cases"]["CAR_NO"] = {
         "name": "CAR_NO с русскими буквами (принимает Половину)"
     }
 }
-library["cases"]["BANK_ACCOUNT"] = {
+normal_library["cases"]["BANK_ACCOUNT"] = {
     "C": {
         "value": r"^[0-9]{10}$",
         "gen_func": reg_check,
@@ -399,7 +399,7 @@ library["cases"]["BANK_ACCOUNT"] = {
         "name": "BANK_ACCOUNT (не корректно по длине)"
     }
 }
-library["cases"]["BALANCE"] = {
+normal_library["cases"]["BALANCE"] = {
     "C": {
         "value": r"^([1-9][0-9]{0,8}.[0-9]{2}|0.[0-9]{2})$",
         "gen_func": reg_check,
