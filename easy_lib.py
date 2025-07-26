@@ -116,7 +116,7 @@ easy_library["cases"]["ID_CARD"] = {
         "name": "ID_CARD (не корректно по одному символу)"
     },
     "A": {
-        "value": r"^[0-9]{1-9}$",
+        "value": r"^[0-9]{1,9}$",
         "gen_func": get_all,
         "next": "L",
         "doc": ID_CARD,

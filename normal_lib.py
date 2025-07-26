@@ -168,7 +168,7 @@ normal_library["cases"]["ID_CARD"] = {
         "name": "ID_CARD (корректно)"
     },
     "F": {
-        "value": r"^[0-9]{1-9}$",
+        "value": r"^[0-9]{1,9}$",
         "gen_func": reg_check,
         "next": "C",
         "doc": ID_CARD,
