@@ -85,12 +85,16 @@ pre.json {
 .field { margin: 12px 0; }
 .field-name { font-weight: 600; margin-left: 20px; }
 
+/* карточка/консоль — по центру, задание — справа */
 .layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(320px, 440px);
+  grid-template-areas: "main side";
   gap: 24px;
   align-items: start;
 }
+.layout > .console { grid-area: main; width: 100%; max-width: 720px; justify-self: center; }
+.layout > .doc { grid-area: side; }
 
 .doc, .console {
   background: var(--paper);
@@ -99,7 +103,8 @@ pre.json {
   padding: 24px;
 }
 
-.console { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; }
+.doc { position: sticky; top: 16px; max-height: calc(100vh - 32px); overflow-y: auto; }
+.doc h1 { font-size: 1.3rem; }
 .console h2 { margin-top: 0; }
 .console form { display: grid; gap: 8px; }
 .console label { font-size: 0.85rem; color: var(--muted); }
@@ -177,8 +182,8 @@ main > p { max-width: 720px; margin: 8px auto; }
 .danger { display: flex; gap: 16px; align-items: center; justify-content: center; margin-top: 40px; flex-wrap: wrap; }
 
 @media (max-width: 900px) {
-  .layout { grid-template-columns: 1fr; }
-  .console { position: static; max-height: none; }
+  .layout { grid-template-columns: 1fr; grid-template-areas: "side" "main"; }
+  .doc { position: static; max-height: none; }
   .doc, .console { padding: 16px; }
   .st, pre.json, .field-name { margin-left: 0; }
 }
