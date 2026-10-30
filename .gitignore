@@ -1,0 +1,17 @@
+# IDE и инструменты
+.idea/
+.vscode/
+.claude/
+
+# Python
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+
+# Node (если появятся локальные зависимости)
+node_modules/
+
+# Системные файлы
+.DS_Store
+Thumbs.db
